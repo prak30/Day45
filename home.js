@@ -1,14 +1,22 @@
+let empPayrollList;
 window.addEventListener('DOMContentLoaded', (event) => {
+    empPayrollList = getEmployeePayrollDataFromStorage();
+    document.querySelector(".emp-count").textContent = empPayrollList.length;
     createInnerHtml();
+    localStorage.removeItem('editEmp');
 });
 
-//Template litrals Es6 Features.
+const getEmployeePayrollDataFromStorage = () => {
+    return localStorage.getItem('EmployeePayrollList') ?
+                        JSON.parse(localStorage.getItem('EmployeePayrollList')) : [];
+}
+
 const createInnerHtml = () => {
     const headerHtml = "<th></th><th>Name</th><th>Gender</th><th>Department</th><th>Salary</th><th>Start Date</th><th>Actions</th>";
+    if(empPayrollList.length == 0) return;
     let innerHtml = `${headerHtml}`;
-    let empPayrollList = createEmployeePayrollJSON();
     for(const empPayrollData of empPayrollList){
-        innerHtml =   `${innerHtml}
+        innerHtml = `${innerHtml}
             <tr>
                 <td><img class="profile" alt="" src="${empPayrollData._profilePic}"</td>
                 <td>${empPayrollData._name}</td>
@@ -25,7 +33,6 @@ const createInnerHtml = () => {
     }
     document.querySelector("#table-display").innerHTML = innerHtml;
 }
-
 const getDeptHtml = (deptList) => {
     let deptHtml = '';
     for(const dept of deptList) {
@@ -33,7 +40,6 @@ const getDeptHtml = (deptList) => {
     }
     return deptHtml;
 }
-
 const createEmployeePayrollJSON = () => {
     let empPayrollListLocal = [
         {
@@ -64,4 +70,4 @@ const createEmployeePayrollJSON = () => {
         }
     ];
     return empPayrollListLocal;
-} 
+}
