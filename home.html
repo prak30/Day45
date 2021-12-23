@@ -8,16 +8,17 @@
     <link rel="stylesheet" href="home.css">
 </head>
 <body>
-    <!-- UC_1 -->
+    <!-- UC1 -->
     <header class="header-content header">
-     <div class="logo-content">
-         <img src="logo.png" alt="logo">
+        <div class="logo-content">
+            <img src="logo.png" alt="logo">
             <div>
-                <span class="emp-text">EMPLOYEE</span><br>
+                <span class="emp-text">EMPLOYEE</span>
                 <span class="emp-text emp-payroll">PAYROLL</span>
             </div>
-     </div>
+        </div>
     </header>
+
     <div class="main-content">
         <!-- UC2 -->
         <div class="header-content">
@@ -26,7 +27,35 @@
             </div>
             <a href="emp.html" class="add-button">
                 <img src="add-24px.png" alt="">Add User</a>
-
+        </div>
+        <div class="table-main">
+            <!-- UC3 -->
+            <table id="table-display" class="table">
+                <tr>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>Department</th>
+                    <th>Salary</th>
+                    <th>Start Date</th>
+                    <th>Action</th>
+                </tr>
+                <tr>
+                    <td><img class="profile" alt="" src="Ellipse -2.png" </td>
+                    <td>Pranav Katkar</td>
+                    <td>Male</td>
+                    <td>
+                        <div class="dept-label">HR</div>
+                        <div class="dept-label">Finance</div>
+                    </td>
+                    <td>300000</td>
+                    <td>1 Nov 2020</td>
+                    <td>
+                        <img id="1" onclick="remove(this)" alt="delete" src="delete-black-18dp.png">
+                        <img id="1" alt="edit" onclick="update(this)" src="create-black-18dp.jpg">
+                    </td>
+                </tr>
+            </table>
         </div>
 
     </div>
