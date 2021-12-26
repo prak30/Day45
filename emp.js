@@ -7,9 +7,10 @@ window.addEventListener('DOMContentLoaded', (event) => {
             return;
         }
         try {
-            (new EmployeePayrollData()).name = name.value;;
+            (new EmployeePayrollData()).name = name.value;
             textError.textContent = " ";
         } catch (e) {
+            console.log(e)
             textError.textContent = e;
         }
     });
@@ -27,8 +28,10 @@ salary.addEventListener('input', function () {
 });
 
 const save = () => {
+    console.log("calling save")
     try{
         let employeePayrollData = createEmployeePayroll();
+        console.log(employeePayrollData)
         createAndUpdateStorage(employeePayrollData);
     } catch (e){
         return;
@@ -36,6 +39,8 @@ const save = () => {
 }
 
 function createAndUpdateStorage(employeePayrollData){
+    console.log("create and update method ")
+    console.log(employeePayrollData)
     let employeePayrollList = JSON.parse(localStorage.getItem("EmployeePayrollList"));
     if(employeePayrollList != undefined){
         employeePayrollList.push(employeePayrollData);
@@ -47,6 +52,7 @@ function createAndUpdateStorage(employeePayrollData){
 }
 
 const createEmployeePayroll = () => {
+    console.log("calling createEmployeePayroll")
     let employeePayrollData = new EmployeePayrollData();
     try{
         employeePayrollData.name = getInputValueById('#name');
