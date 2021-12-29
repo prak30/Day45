@@ -25,8 +25,8 @@ const createInnerHtml = () => {
                 <td>${empPayrollData._salary}</td>
                 <td>${empPayrollData._startDate}</td>
                 <td>
-                    <img name="${empPayrollData._id}" onclick="remove(this)" alt="delete" src="delete-black-18dp.png">
-                    <img name="${empPayrollData._id}" alt="edit" onclick="update(this)" src="create-black-18dp.jpg">
+                    <img id="${empPayrollData._id}" onclick="remove(this)" alt="delete" src="delete-black-18dp.png">
+                    <img id="${empPayrollData._id}" alt="edit" onclick="update(this)" src="create-black-18dp.jpg">
                 </td>
             </tr>
         `;
@@ -40,37 +40,37 @@ const getDeptHtml = (deptList) => {
     }
     return deptHtml;
 }
-const createEmployeePayrollJSON = () => {
-    let empPayrollListLocal = [
-        {
-            _name: 'Narayan Mahadevan',
-            _gender: 'male',
-            _department: [
-                'Engineering',
-                'Finance'
-            ],
-            _salary: '500000',
-            _startDate: '29 Oct 2019',
-            _note: ' ',
-            _id: new Date().getTime(),
-            _profilePic: 'Ellipse -2.png'
-        },
-        {
-            _name: 'Amarpa Shashanka Keerthi Kumar',
-            _gender: 'female',
-            _department: [
-                'Sales',
-                'HR'
-            ],
-            _salary: '400000',
-            _startDate: '29 Oct 2019',
-            _note: '',
-            _id: new Date().getTime() + 1,
-            _profilePic: 'Ellipse -1.png'
-        }
-    ];
-    return empPayrollListLocal;
-}
+// const createEmployeePayrollJSON = () => {
+//     let empPayrollListLocal = [
+//         {
+//             _name: 'Narayan Mahadevan',
+//             _gender: 'male',
+//             _department: [
+//                 'Engineering',
+//                 'Finance'
+//             ],
+//             _salary: '500000',
+//             _startDate: '29 Oct 2019',
+//             _note: ' ',
+//             _id: new Date().getTime(),
+//             _profilePic: 'Ellipse -2.png'
+//         },
+//         {
+//             _name: 'Amarpa Shashanka Keerthi Kumar',
+//             _gender: 'female',
+//             _department: [
+//                 'Sales',
+//                 'HR'
+//             ],
+//             _salary: '400000',
+//             _startDate: '29 Oct 2019',
+//             _note: '',
+//             _id: new Date().getTime() + 1,
+//             _profilePic: 'Ellipse -1.png'
+//         }
+//     ];
+//     return empPayrollListLocal;
+// }
 
 const remove = (node) => {
     let empPayrollData = empPayrollList.find(empData => empData._id == node.id);
@@ -82,4 +82,11 @@ const remove = (node) => {
     localStorage.setItem("EmployeePayrollList", JSON.stringify(empPayrollList));
     document.querySelector(".emp-count").textContent = empPayrollList.length;
     createInnerHtml();                
+}
+
+const update = (node) => {
+    let empPayrollData = empPayrollList.find(empData => empData._id == node.id)
+    if(!empPayrollData) return;
+    localStorage.setItem('editEmp',JSON.stringify(empPayrollData))
+    window.location.replace(site_properties.add_emp_payroll_page);
 }
