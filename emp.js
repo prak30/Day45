@@ -4,7 +4,10 @@ let emplopyeePayrollObj = {};
 window.addEventListener('DOMContentLoaded', (event) => {
   const name = document.querySelector('#name');
   const textError = document.querySelector('.name-error');
+  console.log(textError);
+  console.log(name);
   name.addEventListener('input', function () {
+    console.log(name);
     if (name.value.length == 0) {
       textError.textContent = "";
       return;
@@ -62,13 +65,34 @@ const save = (event) => {
   try {
     console.log("save invoked")
     setEmployeePayrollObject();
-    createAndUpdateStorage();
-    window.location.replace(site_properties.home_page);
+    if (site_properties.use_local_storage.match("true")) {
+      createAndUpdateStorage();
+      resetForm();
+      window.location.replace(site_properties.home_page);
+    } else {
+      createOrUpdateEmployeePayroll();
+    }
   } catch (e) {
-    console.log(e);
     return;
   }
 }
+
+const createOrUpdateEmployeePayroll = () => {
+  let postURL = site_properties.server_url;
+  let methodCall = "POST";
+  if (isUpdate) {
+    methodCall = "PUT";
+    postURL = postURL + emplopyeePayrollObj.id.toString();
+  }
+  makeServiceCall(methodCall, postURL, true, emplopyeePayrollObj)
+    .then(responseText => {
+      window.location.replace(site_properties.home_page);
+    })
+    .catch(error => {
+      throw error;
+    });
+}
+
 
 const setEmployeePayrollObject = () => {
   if (!isUpdate && site_properties.use_local_storage.match("true")) {

@@ -26,7 +26,7 @@
             <div class="row-content">
                 <label class="label text" for="name">Name</label>
                 <input type="text" class="input" id="name" name="name" placeholder="Enter Your Name" required>
-                <error-output class="text-error" for = "text"></error-output>
+                <error-output class="name-error" for='text'></error-output>
             </div>
             <!-- UC3 -->
             <div class="row-content">
@@ -67,15 +67,15 @@
             <div class="row-content">
                 <label class="label text" for="department">Department</label>
                 <div>
-                    <input class="checkbox" type="checkbox" id="hr" name="hr" value="HR">
+                    <input class="checkbox" type="checkbox" id="hr" name="department" value="HR">
                     <label class="text" for="hr">HR</label>
-                    <input class="checkbox" type="checkbox" id="sales" name="sales" value="Sales">
+                    <input class="checkbox" type="checkbox" id="sales" name="department" value="Sales">
                     <label class="text" for="sales">Sales</label>
-                    <input class="checkbox" type="checkbox" name="finance" id="finance" value="Finance">
+                    <input class="checkbox" type="checkbox" name="finance" id="department" value="Finance">
                     <label class="text" for="finance">Finance</label>
-                    <input class="checkbox" type="checkbox" name="engineer" id="engineer" value="Engineer">
+                    <input class="checkbox" type="checkbox" name="engineer" id="department" value="Engineer">
                     <label class="text" for="engineer">Engineer</label>
-                    <input class="checkbox" type="checkbox" name="others" id="others" value="Others">
+                    <input class="checkbox" type="checkbox" name="others" id="department" value="Others">
                     <label class="text" for="others">Others</label>
                 </div>
             </div>
@@ -143,7 +143,8 @@
                         <option value="2018">2018</option>
                     </select>
                 </div>
-            </div>
+                <date-error class="date-error" for="day month year"></date-error>
+           </div>
             <!-- UC6 -->
             <div class="row-content">
                 <label class="label text" for="notes">Notes</label>
@@ -158,10 +159,11 @@
             </div>
         </form>
     </div>
-    <script src="emp.js"></script>
-    <script src="home.js"></script> 
-    <script src="site_properties.js"></script>
-    <script src="utility.js"></script>
+    <script defer src="emp.js"></script>
+    <script defer src="home.js"></script> 
+    <script defer src="site_properties.js"></script>
+    <script defer src="utility.js"></script>
+    <script defer src="xhrequest.js"></script>
 </body>
 
 </html>

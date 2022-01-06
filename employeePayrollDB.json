@@ -1,19 +1,6 @@
 {
   "EmployeePayrollDB": [
     {
-      "id": 1,
-      "_name": "Mark",
-      "_gender": "male",
-      "_department": [
-        "Engineering",
-        "Finance"
-      ],
-      "_salary": "500000",
-      "_startDate": "29 Oct 2019",
-      "_note": "All In One",
-      "_profilePic": "Ellipse-3.png"
-    },
-    {
       "id": 2,
       "_name": "Bill Gates",
       "_gender": "male",
@@ -29,7 +16,8 @@
       "_name": "Amarpa Shashanka Keerthi Kumar",
       "_gender": "female",
       "_department": [
-        "Sales"
+        "Sales",
+        "Finance"
       ],
       "_salary": "400000",
       "_startDate": "29 Oct 2019",
@@ -38,17 +26,28 @@
       "id": 3
     },
     {
-      "_name": "Quark",
-      "_gender": "male",
+      "_name": "Ramu",
+      "_profilePic": "Ellipse-1.png",
+      "_gender": "female",
       "_department": [
-        "Engineering",
         "HR"
       ],
-      "_salary": "550000",
-      "_startDate": "29 Oct 2019",
-      "_note": "All In One",
-      "_profilePic": "Ellipse-3.png",
+      "_salary": "457900",
+      "_note": "",
+      "_startDate": "1 Jan 2021",
       "id": 4
+    },
+    {
+      "_name": "Deepak",
+      "_profilePic": "Ellipse-3.png",
+      "_gender": "male",
+      "_department": [
+        "Sales"
+      ],
+      "_salary": "457900",
+      "_note": "hiii",
+      "_startDate": "1 Jan 2021",
+      "id": 5
     }
   ]
 }
